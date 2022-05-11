@@ -100,10 +100,10 @@ private:
 		SpriteRenderer* weaponRenderer = GetSpriteRenderer(SHOTGUN_PATH_SPRITE, Color::White(), 4);
 		weaponObj->AddComponent(weaponRenderer);
 
-		weaponObj->transform->SetParent(playerObj->transform);
+		weaponObj->transform->SetParent(playerObj->transform); 
 
-		GameObject* spawnerObj = scene->Instantiate("Spawner", Vector3(0, ARENA_LENGTH_BLOCKS_HEIGHT * 0.4f, 0));
-		EnemySpawner* spawner = new EnemySpawner(Vector2(ARENA_LENGTH_BLOCKS_LENGTH, ARENA_LENGTH_BLOCKS_HEIGHT*0.2f), 1);
+		GameObject* spawnerObj = scene->Instantiate("Spawner", Vector3(0, (float)arenaHeight * 0.3f, -1));
+		EnemySpawner* spawner = new EnemySpawner(Vector2(arenaLength*0.2f, arenaHeight *0.1f), 1);
 		spawnerObj->AddComponent(spawner);
 	}
 

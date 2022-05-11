@@ -72,7 +72,6 @@ namespace ClusterEngine
 		{
 			delete transform;
 		}
-		std::cout << "disposed: " << name << "\n";
 	}
 
 	GameObject::~GameObject()

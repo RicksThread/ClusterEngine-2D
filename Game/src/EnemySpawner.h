@@ -14,9 +14,9 @@ protected:
 
 private:
 	Vector2 size;
+	Sprite enemySprite;
 	float timeSpawn;
 	float previousTime;
 	
 	void SpawnEnemy();
 };
-

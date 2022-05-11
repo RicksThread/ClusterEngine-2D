@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="src\awesomeface.png" />
+    <Image Include="src\images\apple.png" />
     <Image Include="src\images\awesomeface.png" />
     <Image Include="src\images\BackGround.jpg" />
     <Image Include="src\images\brick.jpg" />

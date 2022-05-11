@@ -12,6 +12,7 @@ Bullet::Bullet(Collider2DEventHandler* hitEventsHandler, Collider2D* collider) :
 void Bullet::OnHit(Collider2D::CollisionInfo& info)
 {
 	if (info.colliderB->gmObj->name == "ground") SceneManager::currentScene->Destroy(this->gmObj);
+	if (info.colliderB->gmObj->name == "enemy") SceneManager::currentScene->Destroy(info.colliderB->gmObj);
 }
 
 void Bullet::Update()

@@ -132,7 +132,6 @@ namespace ClusterEngine
 
 	void SpriteRenderer::Start()
 	{
-		std::cout << -10 + 0.02 * priorityIndex + priorityOffSet * 0.0001 << "\n";
 		gmObj->transform->position.Z = -10 + 0.02 * priorityIndex + priorityOffSet * 0.0001;
 		priorityOffSet++;
 	}
@@ -166,8 +165,6 @@ namespace ClusterEngine
 			std::cout << "Failed to load texture" << std::endl;
 		}
 
-	
-		
 		// tell opengl for each sampler to which texture unit it belongs to
 		shader->Use(); // activate shader before setting uniforms
 

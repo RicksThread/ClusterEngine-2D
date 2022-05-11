@@ -94,5 +94,8 @@
     <Image Include="src\images\bullet.png">
       <Filter>File di risorse</Filter>
     </Image>
+    <Image Include="src\images\apple.png">
+      <Filter>File di risorse</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -47,9 +47,12 @@ namespace ClusterEngine
 
         void Clear();
 
-        int GetSize() { return memberFuncs.size();  }
+        int GetMethodsN() const;
 
-        virtual ~MultiCastDelegateBase() { initialized = false; }
+        int GetMemberMethodsN() const;
+        int GetGlobalMethodsN() const;
+
+        virtual ~MultiCastDelegateBase() {}
     protected:
 
         /**
@@ -66,7 +69,6 @@ namespace ClusterEngine
         std::unordered_map< void*, std::vector<std::unique_ptr<rIDelegate>> > globalFuncs;
         //member funcs (key 1: address of callee; key 2: member function)
         std::unordered_map< void*, MemberFunc > memberFuncs;
-        bool initialized = true;
 
         typedef std::function<void(rIDelegate*)> ForeachFunc;
 
@@ -115,7 +117,6 @@ namespace ClusterEngine
     template <typename R, typename... Params> template <class T>
     void MultiCastDelegateBase<R, Params...>::Add(R(T::* func)(Params...), T& caller)
     {
-        if (!initialized) return;
         //for more readability
         using std::pair;
         using std::unique_ptr;
@@ -164,7 +165,6 @@ namespace ClusterEngine
     template<typename R, typename... Params>
     void MultiCastDelegateBase<R, Params...>::Add(GlobalFunc globalFunc)
     {
-        if (!initialized) return;
         using std::pair;
         using std::unique_ptr;
         using std::vector;
@@ -189,11 +189,9 @@ namespace ClusterEngine
     template<typename R, typename... Params> template<class T>
     void MultiCastDelegateBase<R, Params...>::Remove(R(T::* func)(Params...), T& caller)
     {
-        if (!initialized) return;
         void* funcAdress = Converter::ForceToVoid<R(T::*)(Params...)>(func);
         void* callerAdress = &caller;
 
-        std::cout << "nums of memberfuncs: " << memberFuncs.size() << "\n";
         if (!memberFuncs.count(callerAdress)) return;
         if (!memberFuncs[callerAdress].functions.count(funcAdress)) return;
 
@@ -203,7 +201,6 @@ namespace ClusterEngine
     template<typename R, typename... Params>
     void MultiCastDelegateBase<R, Params...>::Remove(GlobalFunc func)
     {
-        if (!initialized) return;
         void* funcAddress = Converter::ForceToVoid<R(*)(Params...)>(func);
 
         if (!globalFuncs.count(funcAddress)) return;
@@ -214,7 +211,6 @@ namespace ClusterEngine
     template<typename R, typename... Params>
     void MultiCastDelegateBase<R, Params...>::ForEachFunc(ForeachFunc lambda)
     {
-        if (!initialized) return;
         for (const auto& i : globalFuncs)
         {
             for (const auto& j : i.second)
@@ -238,15 +234,44 @@ namespace ClusterEngine
     template<typename R, typename... Params>
     void MultiCastDelegateBase<R, Params...>::Clear()
     {
-        if (!initialized) return;
         memberFuncs.clear();
         globalFuncs.clear();
     }
 
     template<typename R, typename... Params>
+    int MultiCastDelegateBase<R, Params...>::GetMethodsN() const
+    {
+        return GetMemberMethodsN() + GetGlobalMethodsN();
+    }
+    
+    template<typename R, typename... Params>
+    int MultiCastDelegateBase<R, Params...>::GetMemberMethodsN() const
+    {
+        int n = 0;
+
+        for (const auto& mFunc : memberFuncs)
+        {
+            n += mFunc.second.functions.size();
+        }
+        return n;
+    }
+
+    template<typename R, typename... Params>
+    int MultiCastDelegateBase<R, Params...>::GetGlobalMethodsN() const
+    {
+        int n = 0;
+
+        for (const auto& gFunc : globalFuncs)
+        {
+            n += gFunc.second.size();
+        }
+        return n;
+    }
+
+
+    template<typename R, typename... Params>
     R MultiCastDelegate<R, Params...>::Invoke(Params... args)
     {
-        if (!MultiCastDelegateBase<R,Params>::initialized) return;
         R result;
         rMultiCastDelegateBase::ForEachFunc
         (
@@ -261,7 +286,6 @@ namespace ClusterEngine
     template<typename... Params>
     void MultiCastDelegate<void, Params...>::Invoke(Params... args)
     {
-        if (!MultiCastDelegateBase<void, Params...>::initialized) return;
         rMultiCastDelegateBase::ForEachFunc
         (
             [&](rIDelegate* iDelegate)

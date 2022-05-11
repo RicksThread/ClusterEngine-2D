@@ -16,9 +16,7 @@ namespace ClusterEngine
 		}
 
 		void Collider2DEventHandler::Start()
-		{
-			std::cout << "object started: " << gmObj->name << "\n";
-		}
+		{}
 
 		void Collider2DEventHandler::FixedUpdate()
 		{
