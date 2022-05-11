@@ -35,6 +35,6 @@ void Weapon::Fire()
 	bullet->AddComponent(bulletBoxCollider);
 	bullet->AddComponent(bulletHitHandler);
 	bullet->AddComponent(bulletComp);
-	bullet->transform->scale = Vector3(1, 1, 1);
+	bullet->transform->scale = Vector3::One() * 0.45f;
 	bulletComp->Fire(forcePush);
 }

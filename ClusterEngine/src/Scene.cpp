@@ -98,34 +98,25 @@ namespace ClusterEngine
 
 		if (deleteGameobjects.size() > 0)
 		{
-			std::vector<int> destroyedObjsIndex(deleteGameobjects.size());
-			int i = 0;
+			std::vector<std::unique_ptr<GameObject>>::iterator itRemovedObjs;
+			//call its destroy
+			for(auto& delObjs : deleteGameobjects)
+				delObjs->Dispose();
 
-			for (auto& delObjs : deleteGameobjects)
-			{
-				//get the iterator position from the given gmObj
-				auto isSameGmObject = [&](auto gmObjptr) { return gmObjptr. == delObjs;  };
-				auto it = std::find_if(gameobjects.begin(), gameobjects.end(), [&](std::unique_ptr<GameObject>& gmObjptr) { return gmObjptr.get() == delObjs;  });
-				
-				int index = std::distance(gameobjects.begin(), it);
-				destroyedObjsIndex[i] = index;
-				
-				//call its destroy
-				gameobjects[index].get()->Dispose();
-				
-				i++;
-			}
+			//get the iterator for erasing the deleted objs
+			itRemovedObjs = 
+				std::remove_if(
+					gameobjects.begin(),
+					gameobjects.end(),
+					[&](std::unique_ptr<GameObject>& gmObjptr) 
+					{
+						return deleteGameobjects.count(gmObjptr.get());  
+					}
+			);
+
 			deleteGameobjects.clear();
 
-			int biggestNDestroyed = 0;
-			for (int i = 0; i < destroyedObjsIndex.size(); i++)
-			{
-				if (destroyedObjsIndex[i] < biggestNDestroyed)
-				std::cout << "destroy at: " << destroyedObjsIndex[i] << "vector size: " << gameobjects.size() << "\n";
-				//remove it from the vector and release it from memory
-				gameobjects.erase(gameobjects.begin() + destroyedObjsIndex[i]);
-				std::cout << "aqs dhusa d\n";
-			}
+			gameobjects.erase(itRemovedObjs, std::end(gameobjects));
 		}
 
 	}

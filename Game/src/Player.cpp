@@ -36,11 +36,11 @@ void Player::Update()
 	}
 
 	//hacky trick for a strange behaviour in fixedupdate
+	body->AddForce(move * EngineTime::GetDeltaTime() / PhysicsManager::GetFixedDeltaTime(), PhysicBody2D::ForceMode2D::ACCELERATION);
 }
 
 void Player::FixedUpdate()
 {
-	body->AddForce(move, PhysicBody2D::ForceMode2D::ACCELERATION);
 	HandleDragStates();
 }
 

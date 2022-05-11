@@ -61,7 +61,6 @@ namespace ClusterEngine
 	void GameObject::Dispose()
 	{
 		isStarted = false;
-		transformComponent->UnSetGmObj();
 
 		for (auto& comp : components)
 		{

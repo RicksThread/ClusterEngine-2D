@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\EnemySpawner.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\GameInitialization.cpp" />
     <ClCompile Include="src\GameSceneBuilder.cpp" />
@@ -33,6 +35,8 @@
     <None Include="src\shaders\vertex.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\EnemySpawner.h" />
     <ClInclude Include="src\Bullet.h" />
     <ClInclude Include="src\GameInitialization.h" />
     <ClInclude Include="src\GameSceneBuilder.h" />

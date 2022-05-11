@@ -33,6 +33,12 @@
     <ClCompile Include="src\Bullet.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="src\EnemySpawner.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\fragment.shader" />
@@ -54,6 +60,12 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="src\Bullet.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EnemySpawner.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enemy.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
