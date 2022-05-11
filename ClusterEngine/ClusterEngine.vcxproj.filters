@@ -239,10 +239,11 @@
     <ClInclude Include="src\Sprite.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="src\container.png">
-      <Filter>File di risorse</Filter>
-    </Image>
+    <ClInclude Include="src\ClusterEngine.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\Physics.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

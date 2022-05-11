@@ -53,6 +53,7 @@
     <ClCompile Include="src\WindowSettings.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ClusterEngine.h" />
     <ClInclude Include="src\InitHandler.h" />
     <ClInclude Include="src\Math\Math.h" />
     <ClInclude Include="src\Math\MathUtils.hpp" />
@@ -67,6 +68,7 @@
     <ClInclude Include="src\EngineManager.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\GameSceneBuilder-DESKTOP-JSCKK6L.h" />
+    <ClInclude Include="src\Physics\Physics.h" />
     <ClInclude Include="src\Sprite.hpp" />
     <ClInclude Include="src\InputsHandler-DESKTOP-JSCKK6L.h" />
     <ClInclude Include="src\InputsHandler.h" />
@@ -95,9 +97,6 @@
     <ClInclude Include="src\Transform.h" />
     <ClInclude Include="src\Utilities.h" />
     <ClInclude Include="src\WindowSettings.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="src\container.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
