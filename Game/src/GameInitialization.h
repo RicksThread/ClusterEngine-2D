@@ -1,5 +1,5 @@
 #pragma once
-#include "InitHandler.h"
+#include <ClusterEngine.h>
 #include "GameSceneBuilder.h"
 
 class GameInitialization : public ClusterEngine::InitHandler

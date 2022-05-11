@@ -1,10 +1,5 @@
 #pragma once
-#include "GameObject.h"
-#include "Component.h"
-#include "Physics/Collider2D.hpp"
-#include "Physics/Collider2DEventHandler.hpp"
-#include "SceneManager.h"
-#include "Scene.h"
+#include <ClusterEngine.h>
 
 class Bullet : public ClusterEngine::Component
 {

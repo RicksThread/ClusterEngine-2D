@@ -1,11 +1,8 @@
 #pragma once
-#include "GameObject.h"
-#include "Component.h"
-#include "Math/Vector2.hpp"
+#include <ClusterEngine.h>
 #include "Enemy.h"
-#include "EngineTime.hpp"
 
-class EnemySpawner : ClusterEngine::Component
+class EnemySpawner : public ClusterEngine::Component
 {
 public:
 	EnemySpawner() = delete;
@@ -16,10 +13,10 @@ protected:
 	virtual void Update() override final;
 
 private:
-	
-	void SpawnEnemy();
 	Vector2 size;
 	float timeSpawn;
 	float previousTime;
+	
+	void SpawnEnemy();
 };
 

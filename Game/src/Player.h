@@ -1,11 +1,5 @@
 #pragma once
-#include <string>
-#include "Component.h"
-#include "InputsHandler.h"
-#include "Math/Vector3.hpp"
-#include "Time.h"
-#include "GameObject.h"
-#include "Physics/PhysicBody2D.hpp"
+#include <ClusterEngine.h>
 
 class Player : public ClusterEngine::Physics::PhysicComponent
 {

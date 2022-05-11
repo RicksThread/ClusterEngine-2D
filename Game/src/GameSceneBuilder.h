@@ -1,15 +1,8 @@
 #pragma once
-#include "SceneBuilder.h"
-#include "SpriteRenderer.h"
-#include "Shader.h"
-#include "StandardShaders.h"
-#include "Color.h"
-#include "Camera.h"
+#include <ClusterEngine.h>
 #include "Player.h"
-#include "Physics/BoxCollider2D.hpp"
-#include "Physics/Collider2DEventHandler.hpp"
-#include "Physics/PhysicBody2D.hpp"
 #include "Weapon.h"
+#include "EnemySpawner.h"
 
 class GameSceneBuilder : public ClusterEngine::SceneBuilder
 {
@@ -108,6 +101,10 @@ private:
 		weaponObj->AddComponent(weaponRenderer);
 
 		weaponObj->transform->SetParent(playerObj->transform);
+
+		GameObject* spawnerObj = scene->Instantiate("Spawner", Vector3(0, ARENA_LENGTH_BLOCKS_HEIGHT * 0.4f, 0));
+		EnemySpawner* spawner = new EnemySpawner(Vector2(ARENA_LENGTH_BLOCKS_LENGTH, ARENA_LENGTH_BLOCKS_HEIGHT*0.2f), 1);
+		spawnerObj->AddComponent(spawner);
 	}
 
 	ClusterEngine::SpriteRenderer* GetSpriteRenderer(const char* pathImage, ClusterEngine::Color color, int indexPriority)
