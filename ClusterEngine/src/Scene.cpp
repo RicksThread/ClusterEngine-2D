@@ -4,8 +4,6 @@
 
 namespace ClusterEngine
 {
-	Scene::Scene() : gameobjects(0), newGameobjects(0), builder(nullptr), isBuilded(false) {}
-
 	Scene::Scene(SceneBuilder* builder) : gameobjects(0), newGameobjects(0), builder(builder), isBuilded(false)
 	{}
 

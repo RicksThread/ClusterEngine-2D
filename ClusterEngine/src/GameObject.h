@@ -26,6 +26,12 @@ namespace ClusterEngine
  		*/ 
 		Transform* transform;
 
+		//remove copy and move operations
+		GameObject(const GameObject&) = delete;
+		GameObject(GameObject&&) = delete;
+		GameObject& operator=(const GameObject&) = delete;
+		GameObject& operator=(GameObject&&) = delete;
+
 		GameObject(const char* name, Transform* transform);
 
 		/**

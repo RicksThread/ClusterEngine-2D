@@ -39,6 +39,9 @@
     <ClCompile Include="src\Enemy.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameSprites.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\fragment.shader" />
@@ -66,6 +69,9 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="src\Enemy.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameSprites.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

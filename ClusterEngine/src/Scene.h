@@ -12,7 +12,14 @@ namespace ClusterEngine
 	class Scene
 	{
 	public:
-		Scene();
+		Scene() = delete;
+
+		//remove copy and move operations
+		Scene(const Scene&) = delete;
+		Scene(Scene&&) = delete;
+		Scene& operator=(const Scene&) = delete;
+		Scene& operator=(Scene&&) = delete;
+
 		Scene(SceneBuilder* sceneBuilder);
 		GameObject* Instantiate(const char* name, const Vector3& position, const Quaternion& rotation, const Vector3& scale);
 		GameObject* Instantiate(const char* name, const Vector3& position, const Quaternion& rotation);

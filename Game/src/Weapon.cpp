@@ -23,18 +23,16 @@ void Weapon::Fire()
 	
 	//set the bullet renderer
 	SpriteRenderer* bulletRenderer = new SpriteRenderer(6);
-	Sprite bulletSprite("src/images/bullet.png");
-	bulletRenderer->SetTexture(bulletSprite);
+	bulletRenderer->SetTexture(*GameSprites::bulletSprite.GetTexture());
 	bullet->AddComponent(bulletRenderer);
 
-	BoxCollider2D* bulletBoxCollider = new BoxCollider2D(Vector2::One());
+	BoxCollider2D* bulletBoxCollider = new BoxCollider2D(true,  Vector2::One());
 	Collider2DEventHandler* bulletHitHandler = new Collider2DEventHandler(bulletBoxCollider);
 
 	Bullet* bulletComp = new Bullet(bulletHitHandler, bulletBoxCollider);
-
 	bullet->AddComponent(bulletBoxCollider);
 	bullet->AddComponent(bulletHitHandler);
 	bullet->AddComponent(bulletComp);
-	bullet->transform->scale = Vector3::One() * 0.45f;
+	bullet->transform->scale = Vector3::One() * 0.25f;
 	bulletComp->Fire(forcePush);
 }

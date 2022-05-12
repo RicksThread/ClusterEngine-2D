@@ -53,6 +53,7 @@
     <ClCompile Include="src\WindowSettings.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GraphicsConventions.h" />
     <ClInclude Include="src\ClusterEngine.h" />
     <ClInclude Include="src\InitHandler.h" />
     <ClInclude Include="src\Math\Math.h" />

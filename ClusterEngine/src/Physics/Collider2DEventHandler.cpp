@@ -39,6 +39,7 @@ namespace ClusterEngine
 
 				if (sqrDstToOther < tEffectiveRange)
 				{
+
 					Collider2D::CollisionInfo info = currentCollider->Intersect(*collider);
 
 					if (info.isColliding)

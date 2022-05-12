@@ -236,13 +236,16 @@
     <ClInclude Include="src\InitHandler.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sprite.hpp">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="src\ClusterEngine.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="src\Physics\Physics.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsConventions.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

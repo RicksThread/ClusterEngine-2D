@@ -5,7 +5,7 @@ using namespace ClusterEngine::Physics;
 
 
 EnemySpawner::EnemySpawner(Vector2 sizeSpawner, float time)
-	: size(sizeSpawner), timeSpawn(time), enemySprite("src/images/apple.png")
+	: size(sizeSpawner), timeSpawn(time)
 {
 	std::cout << size << "\n";
 }
@@ -42,7 +42,7 @@ void EnemySpawner::SpawnEnemy()
 	Collider2DEventHandler* hitsEvent = new Collider2DEventHandler(boxCollider);
 	Enemy* enemy = new Enemy(hitsEvent, 2.6f);
 	SpriteRenderer* renderer = new SpriteRenderer(10);
-	renderer->SetTexture(enemySprite);
+	renderer->SetTexture(*GameSprites::appleSprite.GetTexture());
 	enemyObj->AddComponent(boxCollider);
 	enemyObj->AddComponent(hitsEvent);
 	enemyObj->AddComponent(enemy);

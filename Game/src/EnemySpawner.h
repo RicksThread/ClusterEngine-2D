@@ -1,6 +1,7 @@
 #pragma once
 #include <ClusterEngine.h>
 #include "Enemy.h"
+#include "GameSprites.h"
 
 class EnemySpawner : public ClusterEngine::Component
 {
@@ -14,7 +15,6 @@ protected:
 
 private:
 	Vector2 size;
-	Sprite enemySprite;
 	float timeSpawn;
 	float previousTime;
 	

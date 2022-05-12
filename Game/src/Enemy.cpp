@@ -17,7 +17,8 @@ void Enemy::Update()
 
 void Enemy::OnHit(Physics::ConvexCollider2D::CollisionInfo& info)
 {
-	if (info.colliderB->gmObj->name == "ground")
+	if (info.colliderB->gmObj->name == "ground" || 
+		info.colliderB->gmObj->name == "Player")
 	{
 		SceneManager::currentScene->Destroy(gmObj);
 	}

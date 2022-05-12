@@ -9,10 +9,8 @@
 #include "Color.h"
 #include "Sprite.hpp"
 #include "Component.h"
+#include "GraphicsConventions.h"
 
-#define VAO_DATA unsigned int
-#define SHADER_ID unsigned int
-#define SHADER_BUFFER unsigned int
 
 namespace ClusterEngine
 {
@@ -41,7 +39,7 @@ namespace ClusterEngine
 		SpriteRenderer(VAOType typeVAO, Color color, int priorityIndex);
 
 		void Draw();
-		void SetTexture(Sprite& image);
+		void SetTexture(unsigned int& tex);
 
 		inline int GetPriorityIndex() const noexcept;
 		void SetPriorityIndex(int index);
@@ -52,7 +50,7 @@ namespace ClusterEngine
 		void virtual Dispose() override;
 	private:
 		SHADER_ID transformID, rotationID, scaleID, colorID, textureID;
-		unsigned int texture;
+		TEXTURE texture;
 		unsigned int priorityIndex;
 		Shader* shader;
 

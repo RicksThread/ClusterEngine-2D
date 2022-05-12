@@ -1,5 +1,6 @@
 #pragma once
 #include <ClusterEngine.h>
+#include "GameSprites.h"
 #include "Bullet.h"
 
 class Weapon : public ClusterEngine::Component
