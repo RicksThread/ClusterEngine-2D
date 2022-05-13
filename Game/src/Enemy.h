@@ -1,5 +1,6 @@
 #pragma once
 #include <ClusterEngine.h>
+#include "GameManager.h"
 
 class Enemy : public ClusterEngine::Component
 {

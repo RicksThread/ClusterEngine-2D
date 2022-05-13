@@ -4,6 +4,7 @@
 #include "Weapon.h"
 #include "EnemySpawner.h"
 #include "GameSprites.h"
+#include "GameManager.h"
 
 class GameSceneBuilder : public ClusterEngine::SceneBuilder
 {
@@ -14,6 +15,7 @@ public:
 
 	GameSceneBuilder() = default;
 private:
+
 	virtual void Build(ClusterEngine::Scene* scene) override final
 	{
 		using namespace ClusterEngine::Physics;
@@ -24,6 +26,9 @@ private:
 		ClusterEngine::GameObject* cameraObj = scene->Instantiate("camera", Vector3(0, 0, 0), Quaternion::FromEulerDegree(0, 0, 0), Vector3::One());
 		Camera* cam = new Camera(7);
 		cameraObj->AddComponent(cam);
+
+		GameManager::mainCamera = cam;
+		GameManager::OnLost.Add(&GameSceneBuilder::OnLost, *this);
 
 		WindowSettings::SetWindowSize(800, 800);
 
@@ -103,6 +108,14 @@ private:
 		GameObject* spawnerObj = scene->Instantiate("Spawner", Vector3(0, (float)arenaHeight * 0.3f, -1));
 		EnemySpawner* spawner = new EnemySpawner(Vector2(arenaLength*0.2f, arenaHeight *0.1f), 1);
 		spawnerObj->AddComponent(spawner);
+		GameManager::player = player;
+	}
+
+	void OnLost()
+	{
+		GameManager::mainCamera->GetTransform()->SetParent(nullptr);
+		if (GameManager::isLost) return;
+		ClusterEngine::SceneManager::currentScene->Destroy(GameManager::player->gmObj);
 	}
 
 	ClusterEngine::SpriteRenderer* GetSpriteRenderer(TEXTURE& tex, ClusterEngine::Color color, int indexPriority)

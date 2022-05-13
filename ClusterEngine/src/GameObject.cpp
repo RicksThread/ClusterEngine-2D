@@ -1,5 +1,7 @@
 #include "GameObject.h"
 
+
+
 namespace ClusterEngine
 {
 	GameObject::GameObject(const char* name, Transform* transform) : components(0), transform(transform), transformComponent(dynamic_cast<Component*>(transform)), name(name)

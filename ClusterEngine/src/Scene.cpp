@@ -33,8 +33,10 @@ namespace ClusterEngine
 
 	void Scene::Destroy(GameObject* gmObj)
 	{
+		if (gmObj == nullptr) return;
 		if (deleteGameobjects.count(gmObj)) return;
 		deleteGameobjects.insert(gmObj);
+
 		for (int i = 0; i < gmObj->transform->GetChildCount(); ++i)
 		{
 			Destroy(gmObj->transform->GetChild(i)->gmObj);

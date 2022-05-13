@@ -3,6 +3,7 @@
 #include "Math/Quaternion.hpp"
 #include "Component.h"
 #include <vector>
+#include <set>
 
 namespace ClusterEngine
 {
@@ -44,7 +45,7 @@ namespace ClusterEngine
 	private:
 		friend class Transform;
 
-		std::vector<Transform*> children;
+		std::set<Transform*> children;
 		Transform* parent;
 
 		Quaternion previousRot;
@@ -52,5 +53,6 @@ namespace ClusterEngine
 		Vector3 previousScale;
 
 		void AddChild(Transform* transform);
+		void RemoveChild(Transform* transform);
 	};
 }

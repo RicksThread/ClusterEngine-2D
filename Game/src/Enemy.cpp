@@ -21,6 +21,10 @@ void Enemy::OnHit(Physics::ConvexCollider2D::CollisionInfo& info)
 		info.colliderB->gmObj->name == "Player")
 	{
 		SceneManager::currentScene->Destroy(gmObj);
+		if (info.colliderB->gmObj->name == "ground")
+		{
+			GameManager::Lose();
+		}
 	}
 }
 
