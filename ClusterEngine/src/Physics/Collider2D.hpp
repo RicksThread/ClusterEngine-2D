@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include "../Math/Vector2.hpp"
 #include "../Component.h"
-#include "../MultiCastDelegate.h"
+#include "../MultiCastDelegate.hpp"
 
 namespace ClusterEngine
 {
