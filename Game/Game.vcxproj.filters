@@ -82,16 +82,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="src\images\cacaerba.jpg">
-      <Filter>File di risorse</Filter>
-    </Image>
     <Image Include="src\images\character.png">
       <Filter>File di risorse</Filter>
     </Image>
     <Image Include="src\awesomeface.png">
-      <Filter>File di risorse</Filter>
-    </Image>
-    <Image Include="src\images\awesomeface.png">
       <Filter>File di risorse</Filter>
     </Image>
     <Image Include="src\images\BackGround.jpg">

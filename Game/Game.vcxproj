@@ -50,11 +50,9 @@
   <ItemGroup>
     <Image Include="src\awesomeface.png" />
     <Image Include="src\images\apple.png" />
-    <Image Include="src\images\awesomeface.png" />
     <Image Include="src\images\BackGround.jpg" />
     <Image Include="src\images\brick.jpg" />
     <Image Include="src\images\bullet.png" />
-    <Image Include="src\images\cacaerba.jpg" />
     <Image Include="src\images\character.png" />
     <Image Include="src\images\Shotgun.png" />
   </ItemGroup>

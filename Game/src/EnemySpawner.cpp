@@ -18,10 +18,11 @@ void EnemySpawner::Start()
 
 void EnemySpawner::Update()
 {
-	if (timeSpawn > 0.2) timeSpawn -= EngineTime::GetDeltaTime() * 0.1f;
+	if (timeSpawn > 0.5) timeSpawn -= EngineTime::GetDeltaTime() * 0.1f;
 	if ((EngineTime::GetTime() - previousTime) >= timeSpawn)
 	{
-		velocityDrop += 0.02f;
+		if (velocityDrop <= 14)
+			velocityDrop += 0.01f;
 		previousTime = EngineTime::GetTime();
 		SpawnEnemy();
 	}
@@ -45,7 +46,7 @@ void EnemySpawner::SpawnEnemy()
 	Collider2DEventHandler* hitsEvent = new Collider2DEventHandler(boxCollider);
 	Enemy* enemy = new Enemy(hitsEvent, velocityDrop);
 	SpriteRenderer* renderer = new SpriteRenderer(10);
-	renderer->SetTexture(*GameSprites::cacaErbaSprite.GetTexture());
+	renderer->SetTexture(*GameSprites::appleSprite.GetTexture());
 	enemyObj->AddComponent(boxCollider);
 	enemyObj->AddComponent(hitsEvent);
 	enemyObj->AddComponent(enemy);

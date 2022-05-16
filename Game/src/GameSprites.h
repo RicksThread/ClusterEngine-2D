@@ -9,6 +9,5 @@ struct GameSprites
 	static ClusterEngine::Sprite bulletSprite;
 	static ClusterEngine::Sprite ShotgunSprite;
 	static ClusterEngine::Sprite BackGroundSprite;
-	static ClusterEngine::Sprite cacaErbaSprite;
 	static void GenerateTextures();
 };
