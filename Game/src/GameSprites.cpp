@@ -6,6 +6,7 @@ ClusterEngine::Sprite GameSprites::playerSprite;
 ClusterEngine::Sprite GameSprites::bulletSprite;
 ClusterEngine::Sprite GameSprites::ShotgunSprite;
 ClusterEngine::Sprite GameSprites::BackGroundSprite;
+ClusterEngine::Sprite GameSprites::cacaErbaSprite;
 
 void GameSprites::GenerateTextures()
 {
@@ -15,6 +16,7 @@ void GameSprites::GenerateTextures()
 	bulletSprite.SetPath("src/images/bullet.png");
 	ShotgunSprite.SetPath("src/images/Shotgun.png");
 	BackGroundSprite.SetPath("src/images/BackGround.jpg");
+	cacaErbaSprite.SetPath("src/images/cacaerba.jpg");
 
 	appleSprite.CreateTexture();
 	brickSprite.CreateTexture();
@@ -22,4 +24,5 @@ void GameSprites::GenerateTextures()
 	bulletSprite.CreateTexture();
 	ShotgunSprite.CreateTexture();
 	BackGroundSprite.CreateTexture();
+	cacaErbaSprite.CreateTexture();
 }

@@ -17,6 +17,6 @@ private:
 	Vector2 size;
 	float timeSpawn;
 	float previousTime;
-	
+	float velocityDrop;
 	void SpawnEnemy();
 };

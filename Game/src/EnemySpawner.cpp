@@ -12,13 +12,16 @@ EnemySpawner::EnemySpawner(Vector2 sizeSpawner, float time)
 
 void EnemySpawner::Start()
 {
+	velocityDrop = 1;
 	previousTime = EngineTime::GetTime();
 }
 
 void EnemySpawner::Update()
 {
+	if (timeSpawn > 0.2) timeSpawn -= EngineTime::GetDeltaTime() * 0.1f;
 	if ((EngineTime::GetTime() - previousTime) >= timeSpawn)
 	{
+		velocityDrop += 0.02f;
 		previousTime = EngineTime::GetTime();
 		SpawnEnemy();
 	}
@@ -26,8 +29,8 @@ void EnemySpawner::Update()
 
 void EnemySpawner::SpawnEnemy()
 {
-	float x = MathUtils::RandomRange(-1.0f, 1.0f) * size.X;
-	float y = MathUtils::RandomRange(-1.0f, 1.0f) * size.Y;
+	float x = MathUtils::RandomRange(-1.0f, 1.0f) * size.X * 0.7;
+	float y = MathUtils::RandomRange(-1.0f, 1.0f) * size.Y * 0.4f;
 
 	Vector3 enemyPos =
 		GetTransform()->position +
@@ -36,13 +39,13 @@ void EnemySpawner::SpawnEnemy()
 			y * size.Y
 		));
 
-	GameObject* enemyObj = SceneManager::currentScene->Instantiate("enemy", enemyPos, Vector3::One() * 0.4f);
+	GameObject* enemyObj = SceneManager::currentScene->Instantiate("enemy", enemyPos, Vector3::One() * 0.6);
 
 	BoxCollider2D* boxCollider = new BoxCollider2D(true, Vector2::One());
 	Collider2DEventHandler* hitsEvent = new Collider2DEventHandler(boxCollider);
-	Enemy* enemy = new Enemy(hitsEvent, 2.6f);
+	Enemy* enemy = new Enemy(hitsEvent, velocityDrop);
 	SpriteRenderer* renderer = new SpriteRenderer(10);
-	renderer->SetTexture(*GameSprites::appleSprite.GetTexture());
+	renderer->SetTexture(*GameSprites::cacaErbaSprite.GetTexture());
 	enemyObj->AddComponent(boxCollider);
 	enemyObj->AddComponent(hitsEvent);
 	enemyObj->AddComponent(enemy);

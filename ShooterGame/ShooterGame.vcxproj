@@ -18,51 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\GameManager.cpp" />
-    <ClCompile Include="src\GameSprites.cpp" />
-    <ClCompile Include="src\Enemy.cpp" />
-    <ClCompile Include="src\EnemySpawner.cpp" />
-    <ClCompile Include="src\Bullet.cpp" />
-    <ClCompile Include="src\GameInitialization.cpp" />
-    <ClCompile Include="src\GameSceneBuilder.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Player.cpp" />
-    <ClCompile Include="src\Weapon.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\shaders\fragment.shader" />
-    <None Include="src\shaders\simpleFragment.shader" />
-    <None Include="src\shaders\simpleVertex.shader" />
-    <None Include="src\shaders\vertex.shader" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\GameManager.h" />
-    <ClInclude Include="src\GameSprites.h" />
-    <ClInclude Include="src\Enemy.h" />
-    <ClInclude Include="src\EnemySpawner.h" />
-    <ClInclude Include="src\Bullet.h" />
-    <ClInclude Include="src\GameInitialization.h" />
-    <ClInclude Include="src\GameSceneBuilder.h" />
-    <ClInclude Include="src\Player.h" />
-    <ClInclude Include="src\Weapon.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="src\awesomeface.png" />
-    <Image Include="src\images\apple.png" />
-    <Image Include="src\images\awesomeface.png" />
-    <Image Include="src\images\BackGround.jpg" />
-    <Image Include="src\images\brick.jpg" />
-    <Image Include="src\images\bullet.png" />
-    <Image Include="src\images\cacaerba.jpg" />
-    <Image Include="src\images\character.png" />
-    <Image Include="src\images\Shotgun.png" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ca026e16-ee4d-4130-9770-6721ba70c8af}</ProjectGuid>
-    <RootNamespace>Game</RootNamespace>
+    <ProjectGuid>{bf03e7c2-4850-49ff-a93c-aabf22004229}</ProjectGuid>
+    <RootNamespace>ShooterGame</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -122,13 +82,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -141,7 +97,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ClusterEngine\lib\$(Platform)\;$(SolutionDir)dependencies\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)ClusterEngine\lib\$(Platform)\;E:\repos\ClusterEngine\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw/glfw3.lib;ClusterEngine.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -160,7 +116,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ClusterEngine\lib\$(Platform)\;$(SolutionDir)dependencies\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)ClusterEngine\lib\$(Platform)\;E:\repos\ClusterEngine\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw/glfw3.lib;ClusterEngine.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -170,13 +126,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ClusterEngine\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ClusterEngine\lib\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ClusterEngine.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -187,17 +140,40 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ClusterEngine\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ClusterEngine\lib\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ClusterEngine.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <Image Include="src\images\awesomeface.png" />
+    <Image Include="src\images\BackGround.jpg" />
+    <Image Include="src\images\cacaerba.jpg" />
+    <Image Include="src\images\character.png" />
+    <Image Include="src\images\container.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shaders\fragment.shader" />
+    <None Include="src\shaders\simpleFragment.shader" />
+    <None Include="src\shaders\simpleVertex.shader" />
+    <None Include="src\shaders\vertex.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\GameInitialization.cpp" />
+    <ClCompile Include="src\GameSceneBuilder.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Weapon.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GameInitialization.h" />
+    <ClInclude Include="src\GameSceneBuilder.h" />
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\Weapon.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -2,7 +2,7 @@
 
 namespace ClusterEngine
 {
-	Transform::Transform(Vector3 position, Quaternion rotation, Vector3 scale) : position(position), rotation(rotation), scale(scale), children(0) {}
+	Transform::Transform(Vector3 position, Quaternion rotation, Vector3 scale) : position(position), rotation(rotation), scale(scale) {}
 
 	Vector3 Transform::PointWorldToLocalSpace(Vector3 point)
 	{
@@ -74,13 +74,30 @@ namespace ClusterEngine
 
 	void Transform::SetParent(Transform* transform)
 	{
-		parent = transform;
-		parent->AddChild(transform);
+		if (transform == nullptr)
+		{
+			if (parent != nullptr)
+				parent->RemoveChild(this);
+			parent = nullptr;
+		}
+		else
+		{
+			if (parent != nullptr)
+				parent->RemoveChild(this);
+			parent = transform;
+			parent->AddChild(this);
+		}
 	}
 
 	void Transform::AddChild(Transform* transform)
 	{
-		children.push_back(transform);
+		children.insert(transform);
+	}
+
+	void Transform::RemoveChild(Transform* transform)
+	{
+		if (children.count(transform)) return;
+		children.erase(transform);
 	}
 
 	Transform* Transform::GetParent() const
@@ -90,7 +107,13 @@ namespace ClusterEngine
 
 	Transform* Transform::GetChild(int i) const
 	{
-		return children[i];
+		int index = 0;
+		for (const auto& child : children)
+		{
+			if (index == i) return child;
+			index++;
+		}
+		return nullptr;
 	}
 
 	int Transform::GetChildCount() const
