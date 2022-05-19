@@ -22,4 +22,4 @@ void GameSprites::GenerateTextures()
 	bulletSprite.CreateTexture();
 	ShotgunSprite.CreateTexture();
 	BackGroundSprite.CreateTexture();
-}
+}d
