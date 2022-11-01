@@ -6,7 +6,7 @@ GLAD as a way to access the entry points for the functions of openGL's higher ve
 
 ### What it offers:
  - It offers a very simple physics API (terribly optmized) with:
-   - 2D convex colliders along with events such as on trigger and on collide using the 
+   - 2D convex colliders along with events such as onTrigger and onCollide using the SAT algorithm
    - Simple rigidbodies.
  - A simple component system:
  - A high level rendering system through the component one (I.E SpriteRenderer)
